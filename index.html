@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AfriDeal Motors | Des occasions fiables à prix imbattables</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     
     <style>
         :root {
@@ -191,6 +192,35 @@
             .hero h1 { font-size: 2.2rem; }
             .form-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+
+            /* On affiche le bouton burger seulement sur mobile */
+    .menu-toggle { 
+        display: block !important; 
+    }
+
+    /* On transforme la liste de liens en menu vertical caché par défaut */
+    .nav-links {
+        display: none; /* Cache le menu par défaut */
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    /* Quand le menu est "active", on l'affiche */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 15px 0;
+        display: block;
+    }
         }
     </style>
 </head>
@@ -206,6 +236,9 @@
             <i class="fab fa-whatsapp"></i>
         </a>
         <a href="#contact" class="btn-nav">S’inscrire maintenant</a>
+    </div>
+    <div class="menu-toggle" id="mobile-menu" style="display: none; cursor: pointer; font-size: 1.8rem;">
+    <i class="fas fa-bars"></i>
     </div>
     </nav>
 
@@ -496,6 +529,27 @@
     <p style="margin: 15px 0;">Des occasions fiables à prix imbattables.</p>
     <p style="font-size: 0.8rem; margin-top: 20px;">&copy; 2026 AfriDeal Motors. Tous droits réservés.</p>
 </footer>
+
+
+<script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Change l'icône de "bars" à "xmark" (croix) quand c'est ouvert
+        const icon = mobileMenu.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+    });
+
+    // Ferme le menu automatiquement quand on clique sur un lien
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+</script>
 
 </body>
 </html>
