@@ -232,7 +232,7 @@
         <a href="#apropos">À Propos</a>
         <a href="#process">Processus</a>
         <a href="#faq">FAQ</a>
-        <a href="https://wa.me/2376XXXXXXXX" target="_blank" style="color: #25D366; font-size: 1.5rem; vertical-align: middle; margin: 0 15px;">
+        <a href="https://wa.me/237656500012" target="_blank" style="color: #25D366; font-size: 1.5rem; vertical-align: middle; margin: 0 15px;">
             <i class="fab fa-whatsapp"></i>
         </a>
         <a href="#contact" class="btn-nav">S’inscrire maintenant</a>
@@ -247,7 +247,7 @@
         <p>Importez votre véhicule directement depuis la Chine avec un service clé en main.</p>
         <div class="hero-btns">
             <a href="#contact" class="btn btn-red">Réserver mon véhicule</a>
-            <a href="https://wa.me/2376XXXXXXXX" class="btn btn-outline"> Parler à un agent WhatsApp</a>
+            <a href="https://wa.me/237656500012" class="btn btn-outline"> Parler à un agent WhatsApp</a>
         </div>
     </header>
 
@@ -259,7 +259,7 @@
             </div>
 
             <form name="conversion-afrideal" method="POST" data-netlify="true">
-                
+                <input type="hidden" name="form-name" value="conversion-afrideal" />
                 <div style="margin-bottom: 20px;">
                     <h4 style="margin-bottom: 10px; color: var(--secondary); text-transform: uppercase; font-size: 0.8rem;">1. Informations personnelles</h4>
                     <div class="form-grid">
@@ -509,7 +509,7 @@
         </div>
         <div style="margin-top: 30px;">
             <a href="#contact" class="btn btn-red">Lancer ma commande</a>
-            <a href="https://wa.me/2376XXXXXXXX" class="btn btn-outline"> Agent WhatsApp</a>
+            <a href="https://wa.me/237656500012" class="btn btn-outline"> Agent WhatsApp</a>
         </div>
     </section>
 
@@ -521,7 +521,7 @@
         <a href="https://facebook.com/ton-profil" target="_blank" style="color: #4267B2; font-size: 1.8rem; margin: 0 15px;">
             <i class="fab fa-facebook"></i>
         </a>
-        <a href="https://wa.me/2376XXXXXXXX" target="_blank" style="color: #25D366; font-size: 1.8rem; margin: 0 15px;">
+        <a href="https://wa.me/237656500012" target="_blank" style="color: #25D366; font-size: 1.8rem; margin: 0 15px;">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -554,18 +554,30 @@
 </body>
 </html>
 <script>
-  // On attend que la page soit chargée
-  document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector('form[name="conversion-afrideal"]');
     
-    // Si Netlify a fini de traiter, on peut rediriger (via un petit délai ou une page de succès)
-    // Mais le plus simple est d'ajouter un événement au bouton
-    form.onsubmit = function() {
-      setTimeout(() => {
-        window.location.href = "https://wa.me/2376XXXXXXXX?text=Bonjour AfriDeal, je viens de m'enregistrer pour réserver un véhicule.";
-      }, 1500); // Redirection après 1.5 seconde pour laisser le temps à Netlify de capter les données
-    };
-  });
+    form.addEventListener("submit", function(e) {
+        e.preventDefault(); // Empêche le rechargement immédiat de la page
+
+        const formData = new FormData(form);
+        
+        // Envoi des données à Netlify en arrière-plan
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+        })
+        .then(() => {
+            // Une fois que Netlify a confirmé la réception
+            window.location.href = "https://wa.me/237656500012?text=Bonjour AfriDeal, je viens de m'enregistrer pour réserver un véhicule.";
+        })
+        .catch((error) => {
+            alert("Erreur lors de l'envoi, veuillez réessayer ou nous contacter directement.");
+            console.error(error);
+        });
+    });
+});
 </script>
 
 <script>
