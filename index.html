@@ -3,133 +3,580 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AfriDeal Motors | Importation Véhicules Chine-Afrique</title>
+    <title>AfriDeal Motors | Des occasions fiables à prix imbattables</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        /* Variables de couleurs */
         :root {
-            --primary-black: #1a1a1a;
-            --accent-red: #e63946;
-            --deal-gold: #ffb703;
-            --text-gray: #f4f4f4;
+            --primary: #1a1a1a;
+            --secondary: #e63946;
+            --accent: #ffb703;
+            --white: #ffffff;
+            --gray: #f8f9fa;
+            --success: #28a745;
         }
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff;
-            color: var(--primary-black);
-            line-height: 1.6;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--primary); scroll-behavior: smooth; }
 
-        /* Barre de Navigation */
+        /* NAVBAR */
         nav {
-            background: var(--primary-black);
-            color: white;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 5%; background: var(--white);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: bold;
+        .logo-img { height: 80px; cursor: pointer; }
+        .nav-links a { text-decoration: none; color: var(--primary); margin: 0 15px; font-weight: 700; font-size: 0.9rem; }
+        .nav-links i:hover, footer i:hover {
+          transform: scale(1.2);
+          transition: 0.3s;
+          filter: brightness(1.2);
         }
-        .logo-text span { color: var(--deal-gold); }
+        .btn-nav { background: var(--secondary); color: white !important; padding: 12px 25px; border-radius: 5px; text-transform: uppercase; }
 
-        /* Section Héros (Image de couverture) */
+        /* HERO */
+        /* Dans ta balise <style> */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('logo.jpg');
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(Background.png);
             background-size: cover;
             background-position: center;
-            height: 60vh;
+            background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
-            padding: 0 20px;
+            padding: 0 10%;
+            margin-top: 60px;
         }
+        .hero h1 { font-size: 3.8rem; text-transform: uppercase; margin-bottom: 20px; line-height: 1.1; font-weight: 900; }
+        .hero p { font-size: 1.4rem; margin-bottom: 35px; max-width: 900px; color: #ddd; }
 
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; max-width: 700px; }
-
-        /* Bouton */
-        .cta-button {
-            background-color: var(--accent-red);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: 0.3s;
+        /* BUTTONS */
+        .btn {
+            display: inline-block; padding: 18px 35px; text-decoration: none;
+            font-weight: 900; text-transform: uppercase; border-radius: 5px; transition: 0.3s;
+            cursor: pointer; border: none; font-size: 1rem;
         }
-        .cta-button:hover { background-color: var(--deal-gold); color: var(--primary-black); }
+        .btn-red { background: var(--secondary); color: white; box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4); }
+        .btn-outline { border: 2px solid white; color: white; margin-left: 15px; }
+        .btn-red:hover { transform: scale(1.05); background: var(--accent); color: var(--primary); }
 
-        /* Section Services */
-        .services {
-            padding: 50px 5%;
+        /* SECTIONS */
+        section { padding: 80px 5%;}
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 28px; text-transform: uppercase; font-weight: 800; }
+        .bar { width: 70px; height: 5px; background: var(--secondary); margin: 15px auto; }
+
+        /* FORMULAIRE (L'ACTION UNIQUE) */
+        .form-section { background: var(--gray); padding-top: 60px; }
+        .form-container { 
+            max-width: 850px; margin: -120px auto 0; background: white; 
+            padding: 20px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative; z-index: 10; border-top: 6px solid var(--secondary);
+        }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
+        input, textarea, select { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; background: #fafafa; }
+        .form-notice { background: #fff3cd; padding: 15px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; border-left: 5px solid var(--accent); }
+
+        /* PROCESSUS 9 ÉTAPES */
+        /* 5. PROCESSUS (TIMELINE) AVEC FONDU PHOTO */
+        .process-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            background: #f9f9f9;
         }
 
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-bottom: 4px solid var(--accent-red);
+        .step-card {
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+            color: var(--primary); /* Le texte reste noir pour le contraste */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Pousse le texte vers le bas de la carte */
+            min-height: 250px; /* Donne de la hauteur pour voir l'image */
+            background-size: cover;
+            background-position: center;
         }
 
-        footer {
-            background: var(--primary-black);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
+        /* L'overlay de fondu blanc (le secret de la lisibilité) */
+        .step-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Dégradé du blanc opaque (en bas) vers le blanc transparent (en haut) */
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.9) 70%, rgba(255,255,255,1) 100%);
+            z-index: 1;
+        }
+
+        /* Assure que le texte et le numéro sont AU-DESSUS du fondu */
+        .step-num, .step-card h4, .step-card p {
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgb(235 18 34 / 50%); /* Numéro plus discret */
+            margin-bottom: -15px;
+            display: block;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* CONFIANCE & STRATEGIE */
+        .strategy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .strategy-card { background: var(--primary); color: white; padding: 40px; border-radius: 10px; }
+        .strategy-card h3 { color: var(--accent); margin-bottom: 15px; text-transform: uppercase; }
+
+        /* FAQ */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+
+.faq-item {
+    background: white;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.faq-question {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+}
+
+.faq-question strong { font-size: 1.1rem; color: var(--primary); }
+.faq-question i { transition: 0.3s; color: var(--secondary); }
+
+.faq-answer {
+    max-height: 0; /* Fermé par défaut */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: #fafafa;
+}
+
+.faq-answer p { padding: 0 20px 20px 20px; color: #666; font-size: 0.95rem; }
+
+/* Classe active qui sera ajoutée via JS */
+.faq-item.active .faq-answer {
+    max-height: 200px; /* S'ouvre fluidement */
+}
+.faq-item.active .faq-question i {
+    transform: rotate(180deg); /* La flèche se retourne */
+}
+
+        footer { background: #0b0b0b; color: #777; padding: 60px 10%; text-align: center; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo-text">Afri<span>Deal</span> Motors</div>
-        <div>
-            <a href="#contact" style="color:white; text-decoration:none;">Contact</a>
-        </div>
+    <img src="logo.jpeg" alt="AFRIDEAL MOTORS" class="logo-img">
+    <div class="nav-links">
+        <a href="#apropos">À Propos</a>
+        <a href="#process">Processus</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://wa.me/2376XXXXXXXX" target="_blank" style="color: #25D366; font-size: 1.5rem; vertical-align: middle; margin: 0 15px;">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="#contact" class="btn-nav">S’inscrire maintenant</a>
+    </div>
     </nav>
 
     <header class="hero">
         <h1>Des occasions fiables à prix imbattables</h1>
-        <p>L'expert de l'importation de véhicules reconditionnés depuis la Chine vers l'Afrique.</p>
-        <a href="https://wa.me/2376XXXXXXXX" class="btn cta-button">Nous contacter sur WhatsApp</a>
+        <p>Importez votre véhicule directement depuis la Chine avec un service clé en main.</p>
+        <div class="hero-btns">
+            <a href="#contact" class="btn btn-red">Réserver mon véhicule</a>
+            <a href="https://wa.me/2376XXXXXXXX" class="btn btn-outline"> Parler à un agent WhatsApp</a>
+        </div>
     </header>
 
-    <section class="services">
-        <div class="service-card">
-            <h3>🚗 Qualité Certifiée</h3>
-            <p>Chaque véhicule est inspecté et reconditionné avant expédition pour garantir votre sécurité.</p>
+    <section class="form-section">
+        <div class="form-container" id="contact">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h2 style="text-transform: uppercase; font-weight: 900;">Démarrez votre commande maintenant</h2>
+                <p>Remplissez ce formulaire et un agent vous contacte immédiatement</p>
+            </div>
+
+            <form name="conversion-afrideal" method="POST" data-netlify="true">
+                
+                <div style="margin-bottom: 20px;">
+                    <h4 style="margin-bottom: 10px; color: var(--secondary); text-transform: uppercase; font-size: 0.8rem;">1. Informations personnelles</h4>
+                    <div class="form-grid">
+                        <input type="text" name="nom" placeholder="Nom complet (Obligatoire)" required>
+                        <input type="email" name="email" placeholder="Email (Conseillé)">
+
+                        <select id="pays-dropdown" name="pays" required>
+                            <option value="">Chargement des pays...</option>
+                        </select>
+
+                        <div style="display: flex; gap: 5px;">
+                            <select id="code-dropdown" name="code_pays" style="flex: 1; min-width: 100px;" required>
+                                <option value="">Code</option>
+                            </select>
+                            <input type="tel" name="whatsapp" placeholder="N° WhatsApp" style="flex: 2;" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h4 style="margin-bottom: 10px; color: var(--secondary); text-transform: uppercase; font-size: 0.8rem;">2. Informations sur le véhicule</h4>
+                    <div class="form-grid">
+                        <select name="type_vehicule" required>
+                            <option value="" disabled selected>Type de véhicule</option>
+                            <option>Voiture</option>
+                            <option>SUV</option>
+                            <option>Pick-up</option>
+                            <option>Camion</option>
+                            <option>Autre</option>
+                        </select>
+                        <input type="text" name="marque" placeholder="Marque souhaitée">
+                        <input type="text" name="modele" placeholder="Modèle souhaité">
+                        <select name="budget" required>
+                            <option value="" disabled selected>Budget estimé</option>
+                            <option>Moins de 3M FCFA</option>
+                            <option>3M – 5M FCFA</option>
+                            <option>5M – 10M FCFA</option>
+                            <option>Plus de 10M FCFA</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h4 style="margin-bottom: 10px; color: var(--secondary); text-transform: uppercase; font-size: 0.8rem;">3. Préférence d’achat</h4>
+                    <select name="delai" required>
+                        <option value="" disabled selected>Délai souhaité</option>
+                        <option>Urgent</option>
+                        <option>1 à 3 mois</option>
+                        <option>Juste information</option>
+                    </select>
+                </div>
+
+                <div style="margin-top: 25px; padding: 15px; background: #fdf2f2; border-radius: 6px;">
+                    <label style="display: flex; align-items: flex-start; cursor: pointer; font-size: 0.9rem; font-weight: bold;">
+                        <input type="checkbox" required style="width: auto; margin-right: 15px; margin-top: 5px;">
+                        <span>Je confirme vouloir réserver un véhicule et être contacté par AFRIDEAL MOTORS pour le versement de réservation.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-red" style="width: 100%; margin-top: 25px; font-size: 16px;">
+                    M’enregistrer et contacter l’agence
+                </button>
+            </form>
         </div>
-        <div class="service-card">
-            <h3>💰 Prix Directs</h3>
-            <p>Évitez les intermédiaires et profitez des meilleurs tarifs du marché sino-africain.</p>
+    </section>
+
+    <section id="reseau" style="background: white;">
+        <div class="strategy-grid" style="align-items: center; gap: 40px;">
+            <div class="story-image" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="reseau.webp" alt="Carte du réseau logistique AfriDeal Motors" style="width: 100%; display: block;">
+            </div>
+            <div class="story-content">
+                <h2>NOTRE RÉSEAU LOGISTIQUE SINO-AFRICAIN</h2>
+                <div class="bar" style="margin-left:0;"></div>
+                <p>Grâce à notre siège stratégique à <strong>Shanghai</strong>, nous couvrons l'intégralité du territoire chinois pour le sourcing et le contrôle qualité. Notre logistique est ensuite optimisée pour une livraison rapide vers nos agences en Afrique.</p>
+                <div style="margin-top:25px;">
+                   <a href="#contact" class="btn btn-red">Lancer une commande</a>
+                </div>
+            </div>
         </div>
-        <div class="service-card">
-            <h3>🚢 Logistique Sécurisée</h3>
-            <p>Nous gérons tout le transport et les formalités jusqu'à votre port de destination.</p>
+    </section>
+
+    <section id="apropos" style="background: white;">
+        <div class="strategy-grid" style="align-items: center; gap: 40px;">
+            
+            <div class="story-content">
+                <h2>Qui sommes-nous ?</h2>
+                <div class="bar" style="margin-left:0;"></div>
+                <p>
+                <strong>AFRIDEAL MOTORS</strong> est une plateforme africaine majeure spécialisée dans le sourcing et l'importation automobile internationale. 
+                Nous supprimons les intermédiaires pour vous offrir un <strong><i>accès direct</i></strong> aux stocks de groupes mondiaux tels que 
+                <strong><em>China Yongda Automobiles</em></strong> et <strong><em>Zhongsheng Group</em></strong>.
+                </p>
+                <ul style="margin-top: 20px; list-style: none;">
+                    <li><i class="fas fa-check-circle" style="color:var(--success)"></i> Licence d'exportation certifiée</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--success)"></i> Traçabilité totale des opérations</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--success)"></i> Expertise internationale (Chine + Afrique)</li>
+                </ul>
+                <div style="margin-top:25px;">
+                   <a href="#contact" class="btn btn-red">Contactez nous</a>
+                </div>
+            </div>
+            <div class="story-image" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="Agence.png" alt="Carte du réseau logistique AfriDeal Motors" style="width: 100%; display: block;">
+            </div>
+        </div>
+    </section>
+
+    <section id="mission">
+        <div style="display: grid;gap: 30px;">
+            <div style="background: var(--gray);padding: 40px;border-radius: 10px;display: flex;flex-direction: column;align-items: center;text-align: center;">
+                <h3>Notre Mission</h3>
+                <p>Rendre accessible à tous des véhicules fiables à des prix imbattables via l'import direct et l'optimisation des coûts logistiques.</p>
+                <a href="#contact" class="btn btn-red" style="margin-top: 20px; padding: 10px 20px; font-size: 0.8rem;">Réserver maintenant</a>
+            </div>
+            <div class="story-image" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="mission.png" alt="Carte du réseau logistique AfriDeal Motors" style="width: 100%; display: block;">
+            </div>
+        </div>
+    </section>
+
+    <section id="process" style="background: var(--gray);">
+        <div class="section-title">
+            <h2>Processus d’achat clé en main</h2>
+            <div class="bar"></div>
+            <p>Un système simple, structuré et 100% sécurisé</p>
+        </div>
+        <div class="process-container">
+            
+            <div class="step-card" style="background-image: url('commande.jpg');">
+                <span class="step-num">1</span>
+                <h4>Commande</h4>
+                <p>Sélection du véhicule (catalogue ou demande personnalisée).</p>
+            </div>
+
+            <div class="step-card" style="background-image: url('versement.png'); border: 2px solid var(--accent);">
+                <span class="step-num">2</span>
+                <h4>Réservation</h4>
+                <p>Versement de 100 000 FCFA pour bloquer le véhicule et créer votre dossier.</p>
+            </div>
+
+            <div class="step-card" style="background-image: url('Afrideal\ \(8\).webp');">
+                <span class="step-num">3</span>
+                <h4>Inspection</h4>
+                <p>Contrôle qualité, mécanique complet et validation conformité export.</p>
+            </div>
+
+            <div class="step-card" style="background-image: url('vente.png');">
+                <span class="step-num">4</span>
+                <h4>Achat & Doc</h4>
+                <p>Achat officiel, préparation des documents et organisation du transport.</p>
+            </div>
+
+            <div class="step-card" style="background-image: url('Afrideal\ \(9\).webp');">
+                <span class="step-num">5</span>
+                <h4>Expédition</h4>
+                <p>Suivi en temps réel de la traversée vers votre pays.</p>
+            </div>
+
+            <div class="step-card" style="background-image: url('afrideal-cool.jpg'); border: 2px solid var(--success);">
+                <span class="step-num">6</span>
+                <h4>Livraison</h4>
+                <p>Dédouanement inclus (aucune surprise) et remise des clés. Vous roulez.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title"><h2>Nos 3 Piliers Stratégiques</h2></div>
+        <div class="strategy-grid">
+            <div class="strategy-card">
+                <h3>1. Prix Compétitifs</h3>
+                <p>Sourcing direct, négociation en volume et réduction drastique des intermédiaires.</p>
+            </div>
+            <div class="strategy-card">
+                <h3>2. Confiance Client</h3>
+                <p>Processus clair, communication continue et accompagnement personnalisé à chaque étape.</p>
+            </div>
+            <div class="strategy-card">
+                <h3>3. Rapidité</h3>
+                <p>Logistique optimisée et réseau structuré pour des délais maîtrisés (3 à 8 semaines).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" style="background: var(--gray);">
+    <div class="section-title">
+        <h2>Questions Fréquentes</h2>
+        <div class="bar"></div>
+    </div>
+    
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">
+                <strong>Pourquoi un premier versement de 100 000 FCFA ?</strong>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Cela permet de confirmer votre engagement sérieux, de bloquer immédiatement le véhicule auprès du fournisseur et de lancer tout le processus administratif et logistique.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <strong>Les frais de douane sont-ils inclus ?</strong>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>OUI. Chez AfriDeal Motors, tout est inclus dans votre paiement final. Aucun coût caché, aucune complication administrative à l'arrivée : vous recevez, vous roulez.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <strong>Puis-je commander un modèle spécifique ?</strong>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Absolument. Nous faisons du sourcing personnalisé pour répondre exactement à vos besoins, à votre marque préférée et à votre budget.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <strong>Le paiement est-il sécurisé ?</strong>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Oui. Chaque étape est encadrée par un contrat de service et une traçabilité totale des fonds. Votre tranquillité est notre priorité.</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 40px;">
+        <a href="#contact" class="btn btn-red">S’inscrire maintenant</a>
+    </div>
+    </section>
+
+    <section style="background: var(--primary); color: white; text-align: center;">
+        <h2 style="font-size: 2.5rem;">PRÊT À OBTENIR VOTRE VÉHICULE ?</h2>
+        <p style="margin: 20px 0; font-size: 1.2rem;">Ne manquez pas l'opportunité de rouler en toute sécurité au meilleur prix.</p>
+        <div class="pub-container" style="text-align: center; margin: 40px 0;">
+            <iframe src="afrideal-pub30s.html" 
+               style="width: 100%; max-width: 800px; height: 550px; border: none; border-radius: 15px; shadow: 0 10px 30px rgba(0,0,0,0.1);" 
+               title="Publicité AfriDeal Motors">
+            </iframe>
+        </div>
+        <div style="margin-top: 30px;">
+            <a href="#contact" class="btn btn-red">Lancer ma commande</a>
+            <a href="https://wa.me/2376XXXXXXXX" class="btn btn-outline"> Agent WhatsApp</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 AfriDeal Motors - Tous droits réservés.</p>
-    </footer>
+    <img src="logo.jpeg" alt="AfriDeal Motors" style="height: 40px; margin-bottom: 20px; filter: grayscale(100%); opacity: 0.5;">
+    <p><strong>AFRIDEAL MOTORS</strong> | Sourcing & Importation Automobile</p>
+    
+    <div style="margin: 20px 0;">
+        <a href="https://facebook.com/ton-profil" target="_blank" style="color: #4267B2; font-size: 1.8rem; margin: 0 15px;">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://wa.me/2376XXXXXXXX" target="_blank" style="color: #25D366; font-size: 1.8rem; margin: 0 15px;">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <p style="margin: 15px 0;">Des occasions fiables à prix imbattables.</p>
+    <p style="font-size: 0.8rem; margin-top: 20px;">&copy; 2026 AfriDeal Motors. Tous droits réservés.</p>
+</footer>
 
 </body>
 </html>
+<script>
+  // On attend que la page soit chargée
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector('form[name="conversion-afrideal"]');
+    
+    // Si Netlify a fini de traiter, on peut rediriger (via un petit délai ou une page de succès)
+    // Mais le plus simple est d'ajouter un événement au bouton
+    form.onsubmit = function() {
+      setTimeout(() => {
+        window.location.href = "https://wa.me/2376XXXXXXXX?text=Bonjour AfriDeal, je viens de m'enregistrer pour réserver un véhicule.";
+      }, 1500); // Redirection après 1.5 seconde pour laisser le temps à Netlify de capter les données
+    };
+  });
+</script>
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            
+            // Ferme les autres accordéons si on en ouvre un nouveau (optionnel)
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item) otherItem.classList.remove('active');
+            });
+
+            item.classList.toggle('active');
+        });
+    });
+</script>
+
+<script>
+    async function loadCountries() {
+        const paysSelect = document.getElementById('pays-dropdown');
+        const codeSelect = document.getElementById('code-dropdown');
+
+        try {
+            const response = await fetch('https://restcountries.com/v3.1/all?fields=name,idd,translations,cca2');
+            const countries = await response.json();
+
+            // Tri par nom français
+            const sortedCountries = countries.sort((a, b) => 
+                (a.translations.fra.common).localeCompare(b.translations.fra.common)
+            );
+
+            paysSelect.innerHTML = '<option value="" disabled selected>Choisir votre pays</option>';
+            codeSelect.innerHTML = '<option value="" disabled selected>Code</option>';
+
+            sortedCountries.forEach(country => {
+                const name = country.translations.fra.common;
+                const isoCode = country.cca2; // Ex: CM, CI, SN
+                
+                let dialCode = "";
+                if (country.idd.root) {
+                    dialCode = country.idd.root + (country.idd.suffixes ? country.idd.suffixes : "");
+                }
+
+                // Dropdown Pays (On met juste le nom pour éviter les bugs d'affichage Windows)
+                const optPays = document.createElement('option');
+                optPays.value = name;
+                optPays.textContent = name;
+                paysSelect.appendChild(optPays);
+
+                // Dropdown Code Tel (On ajoute le code ISO entre parenthèses pour la clarté)
+                if (dialCode) {
+                    const optCode = document.createElement('option');
+                    optCode.value = dialCode;
+                    optCode.textContent = `${dialCode} (${isoCode})`;
+                    codeSelect.appendChild(optCode);
+                }
+            });
+
+            // Petit bonus : on force le Cameroun en haut si on veut (Optionnel)
+            // Mais le tri alphabétique est déjà très bien.
+
+        } catch (error) {
+            console.error("Erreur:", error);
+            paysSelect.innerHTML = '<option value="Cameroun">Cameroun</option>';
+        }
+    }
+    window.onload = loadCountries;
+</script>
