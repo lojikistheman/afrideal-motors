@@ -221,8 +221,16 @@
         margin: 15px 0;
         display: block;
     }
+
+     #mission .grid-container {
+            grid-template-columns: 1fr !important;
+        }
+        #mission div[style*="grid-template-columns: 1fr 1fr"] {
+            grid-template-columns: 1fr !important;
+        }
         }
     </style>
+
 </head>
 <body>
 
@@ -244,7 +252,7 @@
 
     <header class="hero">
         <h1>Des occasions fiables à prix imbattables</h1>
-        <p>Importez votre véhicule directement depuis la Chine avec un service clé en main.</p>
+        <p>Importez votre véhicule directement depuis la Chine et Dubaï avec un service clé en main.</p>
         <div class="hero-btns">
             <a href="#contact" class="btn btn-red">Réserver mon véhicule</a>
             <a href="https://wa.me/237656500012" class="btn btn-outline"> Parler à un agent WhatsApp</a>
@@ -326,32 +334,17 @@
         </div>
     </section>
 
-    <section id="reseau" style="background: white;">
-        <div class="strategy-grid" style="align-items: center; gap: 40px;">
-            <div class="story-image" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <img src="reseau.webp" alt="Carte du réseau logistique AfriDeal Motors" style="width: 100%; display: block;">
-            </div>
-            <div class="story-content">
-                <h2>NOTRE RÉSEAU LOGISTIQUE SINO-AFRICAIN</h2>
-                <div class="bar" style="margin-left:0;"></div>
-                <p>Grâce à notre siège stratégique à <strong>Shanghai</strong>, nous couvrons l'intégralité du territoire chinois pour le sourcing et le contrôle qualité. Notre logistique est ensuite optimisée pour une livraison rapide vers nos agences en Afrique.</p>
-                <div style="margin-top:25px;">
-                   <a href="#contact" class="btn btn-red">Lancer une commande</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="apropos" style="background: white;">
         <div class="strategy-grid" style="align-items: center; gap: 40px;">
-            
+            <div class="story-image" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+             <img src="reseau.webp" alt="Carte du réseau logistique AfriDeal Motors" style="width: 100%; display: block;">   
+            </div>
             <div class="story-content">
-                <h2>Qui sommes-nous ?</h2>
+                <h2>Expertise Logistique Internationale</h2>
                 <div class="bar" style="margin-left:0;"></div>
                 <p>
-                <strong>AFRIDEAL MOTORS</strong> est une plateforme africaine majeure spécialisée dans le sourcing et l'importation automobile internationale. 
-                Nous supprimons les intermédiaires pour vous offrir un <strong><i>accès direct</i></strong> aux stocks de groupes mondiaux tels que 
-                <strong><em>China Yongda Automobiles</em></strong> et <strong><em>Zhongsheng Group</em></strong>.
+                   AfriDeal Motors est bien plus qu'un simple mandataire automobile. Nous couvrons un vaste réseau logistique en <strong>Chine</strong> et aux <strong>Émirats Arabes Unis</strong>, spécifiquement à <strong>Dubaï</strong>, pour le sourcing et le contrôle qualité de vos produits.
+                   Grâce à nos équipes locales, nous inspectons chaque commande directement chez les fabricants ou concessionnaires avant expédition. Notre logistique est ensuite optimisée pour une livraison sécurisée et rapide vers nos agences en Afrique, garantissant ainsi le meilleur rapport qualité-prix du marché.
                 </p>
                 <ul style="margin-top: 20px; list-style: none;">
                     <li><i class="fas fa-check-circle" style="color:var(--success)"></i> Licence d'exportation certifiée</li>
@@ -362,11 +355,39 @@
                    <a href="#contact" class="btn btn-red">Contactez nous</a>
                 </div>
             </div>
+            
+        </div>
+    </section>
+
+    <section id="reseau" style="background: white;">
+        <div class="strategy-grid" style="align-items: center; gap: 40px;">
+            
+            <div class="story-content">
+                <h2>Qui sommes-nous ?</h2>
+                <div class="bar" style="margin-left:0;"></div>
+                <p style="margin-bottom: 20px;">
+                <span style="color: #c9a227; font-weight: bold;">AFRIDEAL MOTORS</span> est une plateforme logistique africaine de référence, spécialisée dans le sourcing stratégique et l'importation internationale de haute performance. 
+                </p>
+            
+                <p style="margin-bottom: 20px;">
+                    Notre mission est de briser les barrières du commerce international en supprimant les intermédiaires coûteux. Nous offrons à nos clients un <strong>accès direct</strong> aux stocks des plus grands groupes mondiaux en <strong>Chine</strong> (tels que <em>China Yongda Automobiles</em> et <em>Zhongsheng Group</em>) ainsi qu'aux réseaux premium des <strong>Émirats Arabes Unis</strong>, spécifiquement à <strong>Dubaï</strong>.
+                </p>
+
+                <p>
+                Bien que l'automobile soit notre cœur de métier, notre expertise s'étend aujourd'hui à l'importation de <strong>solutions électroniques de pointe</strong> et d'<strong>équipements électroménagers professionnels</strong>. De l'inspection rigoureuse sur le terrain à la sécurisation du fret international, nous garantissons une transparence totale sur chaque transaction.
+                </p>
+                <div style="margin-top:25px;">
+                   <a href="#contact" class="btn btn-red">Lancer une commande</a>
+                </div>
+            </div>
             <div class="story-image" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 <img src="Agence.png" alt="Carte du réseau logistique AfriDeal Motors" style="width: 100%; display: block;">
+                
             </div>
         </div>
     </section>
+
+    
 
     <section id="mission">
         <div style="display: grid;gap: 30px;">
@@ -380,6 +401,67 @@
             </div>
         </div>
     </section>
+
+    <section id="mission" style="padding: 60px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+        
+        <!-- CÔTÉ GAUCHE : Mission et Image -->
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+            <div style="background: var(--gray); padding: 40px; border-radius: 10px; text-align: left; border-left: 5px solid var(--secondary);">
+                <h3>Notre Mission</h3>
+                <p>
+                    Rendre accessible le marché mondial (Chine & Dubaï) via l'import direct. Nous supprimons les intermédiaires pour vous offrir des prix imbattables et une qualité certifiée sur chaque produit.
+                </p>
+            </div>
+            
+            <div class="story-image" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="mission.png" alt="Réseau logistique AfriDeal" style="width: 100%; display: block; transition: transform 0.3s;">
+            </div>
+        </div>
+
+        <!-- CÔTÉ DROIT : Les Services Infiltrés -->
+        <div style="display: grid; gap: 20px;">
+            <h3>Nos Solutions d'Import</h3>
+            
+            <!-- Service 1 -->
+            <div style="display: flex; gap: 20px; align-items: flex-start; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <div style="background: var(--secondary); color: white; padding: 10px; border-radius: 5px;">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <div>
+                    <h4 style="margin: 0; font-size: 1.1rem;">Automobiles & Engins</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">Sourcing Dubaï/Chine, inspection rigoureuse et suivi cargo jusqu'au port.</p>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div style="display: flex; gap: 20px; align-items: flex-start; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <div style="background: var(--primary); color: white; padding: 10px; border-radius: 5px;">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <div>
+                    <h4 style="margin: 0; font-size: 1.1rem;">High-Tech & Électronique</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">Accès direct aux usines de Shenzhen : smartphones, laptops et domotique.</p>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div style="display: flex; gap: 20px; align-items: flex-start; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <div style="background: var(--secondary); color: white; padding: 10px; border-radius: 5px;">
+                    <i class="fas fa-blender"></i>
+                </div>
+                <div>
+                    <h4 style="margin: 0; font-size: 1.1rem;">Électroménager Pro</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">Équipements de maison et cuisine industrielle haute performance.</p>
+                </div>
+            </div>
+
+            <a href="#contact" class="btn btn-red" style="text-align: center; margin-top: 10px;">Lancer mon projet d'import</a>
+        </div>
+    </div>
+</section>
+
+
 
     <section id="process" style="background: var(--gray);">
         <div class="section-title">
@@ -421,8 +503,37 @@
 
             <div class="step-card" style="background-image: url('afrideal-cool.jpg'); border: 2px solid var(--success);">
                 <span class="step-num">6</span>
-                <h4>Livraison</h4>
-                <p>Dédouanement inclus (aucune surprise) et remise des clés. Vous roulez.</p>
+                <h4>Réception & Clefs</h4>
+                <p>Finalisation des formalités portuaires à votre nom et remise officielle de votre bien. Vous êtes prêt à prendre la route.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertises" style="padding: 60px 20px; background: #fff;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            
+                <!-- Véhicules -->
+                <div style="text-align: left;">
+                    <i class="fas fa-car-side" style="font-size: 2.5rem; color: #c9a227; margin-bottom: 15px;"></i>
+                    <h3 style="font-family: 'Oswald', sans-serif; text-transform: uppercase;">Automobiles & Transport</h3>
+                    <p>Sourcing de véhicules neufs de Chine et occasions premium de Dubaï. Berlines, SUV, Pick-ups et engins industriels.</p>
+                </div>
+    
+                <!-- Électronique -->
+                <div style="text-align: left;">
+                    <i class="fas fa-microchip" style="font-size: 2.5rem; color: #c9a227; margin-bottom: 15px;"></i>
+                    <h3 style="font-family: 'Oswald', sans-serif; text-transform: uppercase;">Électronique High-Tech</h3>
+                    <p>Importation directe de smartphones, ordinateurs et solutions de télésurveillance haute technologie pour particuliers et entreprises.</p>
+                </div>
+
+                <!-- Électroménager -->
+                <div style="text-align: left;">
+                    <i class="fas fa-home" style="font-size: 2.5rem; color: #c9a227; margin-bottom: 15px;"></i>
+                    <h3 style="font-family: 'Oswald', sans-serif; text-transform: uppercase;">Électroménager & Maison</h3>
+                    <p>Équipements de maison modernes et appareils électroménagers professionnels durables, sourcés auprès des meilleurs fabricants mondiaux.</p>
+                </div>
+
             </div>
         </div>
     </section>
