@@ -240,7 +240,7 @@
         <a href="#apropos">À Propos</a>
         <a href="#process">Processus</a>
         <a href="#faq">FAQ</a>
-        <a href="https://wa.me/237656500012" target="_blank" style="color: #25D366; font-size: 1.5rem; vertical-align: middle; margin: 0 15px;">
+        <a href="https://wa.me/243858210417" target="_blank" style="color: #25D366; font-size: 1.5rem; vertical-align: middle; margin: 0 15px;">
             <i class="fab fa-whatsapp"></i>
         </a>
         <a href="#contact" class="btn-nav">S’inscrire maintenant</a>
@@ -255,7 +255,7 @@
         <p>Importez votre véhicule directement depuis la Chine et Dubaï avec un service clé en main.</p>
         <div class="hero-btns">
             <a href="#contact" class="btn btn-red">Réserver mon véhicule</a>
-            <a href="https://wa.me/237656500012" class="btn btn-outline"> Parler à un agent WhatsApp</a>
+            <a href="https://wa.me/243858210417" class="btn btn-outline"> Parler à un agent WhatsApp</a>
         </div>
     </header>
 
@@ -274,15 +274,17 @@
                         <input type="text" name="nom" placeholder="Nom complet (Obligatoire)" required>
                         <input type="email" name="email" placeholder="Email (Conseillé)">
 
-                        <select id="pays-dropdown" name="pays" required>
-                            <option value="">Chargement des pays...</option>
+                        <!-- Menu déroulant des pays d'Afrique -->
+                        <select id="pays-residence" name="pays_residence" required style="-webkit-appearance: none;">
+                            <option value="" disabled selected>Pays de résidence (Afrique)</option>
                         </select>
 
-                        <div style="display: flex; gap: 5px;">
-                            <select id="code-dropdown" name="code_pays" style="flex: 1; min-width: 100px;" required>
-                                <option value="">Code</option>
-                            </select>
-                            <input type="tel" name="whatsapp" placeholder="N° WhatsApp" style="flex: 2;" required>
+                        <!-- Champ WhatsApp simplifié avec + fixe -->
+                        <div style="position: relative; display: flex; align-items: center;">
+                            <span style="position: absolute; left: 15px; font-weight: bold; color: #555;">+</span>
+                            <input type="tel" name="whatsapp" placeholder="Indicatif et numéro (ex: 2376...)" 
+                                   style="padding-left: 30px;" required 
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         </div>
                     </div>
                 </div>
@@ -387,20 +389,7 @@
         </div>
     </section>
 
-    
 
-    <section id="mission">
-        <div style="display: grid;gap: 30px;">
-            <div style="background: var(--gray);padding: 40px;border-radius: 10px;display: flex;flex-direction: column;align-items: center;text-align: center;">
-                <h3>Notre Mission</h3>
-                <p>Rendre accessible à tous des véhicules fiables à des prix imbattables via l'import direct et l'optimisation des coûts logistiques.</p>
-                <a href="#contact" class="btn btn-red" style="margin-top: 20px; padding: 10px 20px; font-size: 0.8rem;">Réserver maintenant</a>
-            </div>
-            <div class="story-image" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <img src="mission.png" alt="Carte du réseau logistique AfriDeal Motors" style="width: 100%; display: block;">
-            </div>
-        </div>
-    </section>
 
     <section id="mission" style="padding: 60px 20px;">
     <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
@@ -620,7 +609,7 @@
         </div>
         <div style="margin-top: 30px;">
             <a href="#contact" class="btn btn-red">Lancer ma commande</a>
-            <a href="https://wa.me/237656500012" class="btn btn-outline"> Agent WhatsApp</a>
+            <a href="https://wa.me/243858210417" class="btn btn-outline"> Agent WhatsApp</a>
         </div>
     </section>
 
@@ -632,7 +621,7 @@
         <a href="https://facebook.com/ton-profil" target="_blank" style="color: #4267B2; font-size: 1.8rem; margin: 0 15px;">
             <i class="fab fa-facebook"></i>
         </a>
-        <a href="https://wa.me/237656500012" target="_blank" style="color: #25D366; font-size: 1.8rem; margin: 0 15px;">
+        <a href="https://wa.me/243858210417" target="_blank" style="color: #25D366; font-size: 1.8rem; margin: 0 15px;">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -681,7 +670,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(() => {
             // Une fois que Netlify a confirmé la réception
-            window.location.href = "https://wa.me/237656500012?text=Bonjour AfriDeal, je viens de m'enregistrer pour réserver un véhicule.";
+            window.location.href = "https://wa.me/243858210417?text=Bonjour AfriDeal, je viens de m'enregistrer pour réserver un véhicule.";
         })
         .catch((error) => {
             alert("Erreur lors de l'envoi, veuillez réessayer ou nous contacter directement.");
@@ -707,53 +696,29 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script>
-    async function loadCountries() {
-        const paysSelect = document.getElementById('pays-dropdown');
-        const codeSelect = document.getElementById('code-dropdown');
+document.addEventListener("DOMContentLoaded", function() {
+    // Liste officielle des 54 pays d'Afrique
+    const africanCountries = [
+        "Afrique du Sud", "Algérie", "Angola", "Bénin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroun", "Comores", "Congo (Brazzaville)", "Congo (RDC)", "Côte d'Ivoire", "Djibouti", "Égypte", "Érythrée", "Eswatini", "Éthiopie", "Gabon", "Gambie", "Ghana", "Guinée", "Guinée-Bissau", "Guinée équatoriale", "Kenya", "Lesotho", "Liberia", "Libye", "Madagascar", "Malawi", "Mali", "Maroc", "Maurice", "Mauritanie", "Mozambique", "Namibie", "Niger", "Nigeria", "Ouganda", "Rwanda", "Sao Tomé-et-Principe", "Sénégal", "Seychelles", "Sierra Leone", "Somalie", "Soudan", "Soudan du Sud", "Tanzanie", "Tchad", "Togo", "Tunisie", "Zambie", "Zimbabwe"
+    ];
 
-        try {
-            const response = await fetch('https://restcountries.com/v3.1/all?fields=name,idd,translations,cca2');
-            const countries = await response.json();
+    const paysSelect = document.getElementById('pays-residence');
 
-            // Tri par nom français
-            const sortedCountries = countries.sort((a, b) => 
-                (a.translations.fra.common).localeCompare(b.translations.fra.common)
-            );
-
-            paysSelect.innerHTML = '<option value="" disabled selected>Choisir votre pays</option>';
-            codeSelect.innerHTML = '<option value="" disabled selected>Code</option>';
-
-            sortedCountries.forEach(country => {
-                const name = country.translations.fra.common;
-                const isoCode = country.cca2; // Ex: CM, CI, SN
-                
-                let dialCode = "";
-                if (country.idd.root) {
-                    dialCode = country.idd.root + (country.idd.suffixes ? country.idd.suffixes : "");
-                }
-
-                // Dropdown Pays (On met juste le nom pour éviter les bugs d'affichage Windows)
-                const optPays = document.createElement('option');
-                optPays.value = name;
-                optPays.textContent = name;
-                paysSelect.appendChild(optPays);
-
-                // Dropdown Code Tel (On ajoute le code ISO entre parenthèses pour la clarté)
-                if (dialCode) {
-                    const optCode = document.createElement('option');
-                    optCode.value = dialCode;
-                    optCode.textContent = `${dialCode} (${isoCode})`;
-                    codeSelect.appendChild(optCode);
-                }
-            });
-
-            // Petit bonus : on force le Cameroun en haut si on veut (Optionnel)
-            // Mais le tri alphabétique est déjà très bien.
-
-        } catch (error) {
-            console.error("Erreur:", error);
-            paysSelect.innerHTML = '<option value="Cameroun">Cameroun</option>';
-        }
+    if (paysSelect) {
+        // On vide et on prépare le menu (important pour iOS)
+        paysSelect.innerHTML = '<option value="" disabled selected>Pays de résidence (Afrique)</option>';
+        
+        const fragment = document.createDocumentFragment();
+        
+        // Tri alphabétique tenant compte des accents
+        africanCountries.sort((a, b) => a.localeCompare(b, 'fr')).forEach(country => {
+            let opt = document.createElement('option');
+            opt.value = country;
+            opt.textContent = country;
+            fragment.appendChild(opt);
+        });
+        
+        paysSelect.appendChild(fragment);
     }
-    window.onload = loadCountries;
+});
 </script>
